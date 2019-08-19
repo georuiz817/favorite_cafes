@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
   
-  #able to sign up requirement start 
+  #Must have user account requirement start
     get '/signup' do
         erb :'/users/signup'
     end
@@ -22,10 +22,7 @@ class ApplicationController < Sinatra::Base
            erb :'users/signup'
       end
     end
-  #able to sign up requirement end 
-  
-  #able to login requirement start 
-  
+    #
     get '/login' do
         erb :'/users/login'
     end
@@ -40,8 +37,13 @@ class ApplicationController < Sinatra::Base
            erb :'users/signup'
         end
     end
-    #able to login requirement end 
-  
+    #
+    get '/logout' do
+        session.clear
+        redirect '/'
+    end
+end
+#must have user account requirement end
   
   
   end
